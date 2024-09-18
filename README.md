@@ -1,1 +1,1 @@
-# suicidepreventionstuff
+alvin is a sigma
