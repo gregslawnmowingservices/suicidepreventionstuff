@@ -7,18 +7,13 @@ h1 {text-align: center;}
 p {text-align: center;}
 div {text-align: center;}
 </style>
-window.onload = function() {
-    document.getElementById("my_audio").play();
-}
 </head>
 <body>
 
 <body style="background-color:Black;">
-<audio id="my_audio" src="music/benjamin.mp3" loop="loop"></audio>
-
-window.onload = function() {
-    document.getElementById("my_audio").play();
-}
+<audio loop autoplay hidden>
+    <source src="music/benjamin.mp3" type="audio/mp3">
+</audio>
 
 
 <h1 style="color:Grey">stuff goes here</h1>
