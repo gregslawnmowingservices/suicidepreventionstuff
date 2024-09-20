@@ -12,66 +12,14 @@ p {text-align: center;}
 div {text-align: center;}
 a {text-align: center;}
 </style>
-	
 </head>
 <body>
 
 <body style="background-color:Black;">
-
-
-//Get audio element.
-var audio = document.getElementById("background_audio");
-
-//Get current time/date.
-var date = new Date();
-date.setTime(+ date + (1 * 24 * 60 * 60 * 1000)); // _days_ * hours/day *  mins/hour * sec/min * ms/s (Change first number to change how many days cookie is valid for)
-
-//Check if mute cookie exists.
-if (document.cookie.indexOf("mute=") == -1) {
-    //It does not, lets create it!
-    document.cookie = "mute=" + false + ";expires=" + date.toGMTString() + "; path=/";
-    //Start playing audio!
-    audio.play();
-} else {
-    //Check if mute cookie is set to false.
-    if (getCookie("mute") == "false") {
-        //It is, lets play!
-        audio.play();
-    }
-}
-
-function getCookie(name) {
-    // getCookie function by Chirp Internet: www.chirp.com.au
-    var re = new RegExp(name + "=([^;]+)");
-    var value = re.exec(document.cookie);
-    return value != null ? unescape(value[1]) : null;
-}
-
-//On play/mute button/link click.
-document.getElementById("mute").addEventListener("click",function(e) {
-    e = e || window.event;
-    if (getCookie("mute") == "false") {
-        //If mute cookie is set to false, mute audio.
-        audio.muted = true;
-    } else {
-        //If mute cookie is set to true, unmute audio.
-        audio.muted = false;
-        //Check if audio has been started before.
-        if (audio.paused || audio.currentTime > 0) {
-            //It has not, lets play it!
-            audio.play();
-        }
-    }
-    //Set/update mute cookie with new audio muted value.
-    document.cookie = "mute=" + audio.muted + ";expires=" + date.toGMTString() + "; path=/";
-    e.preventDefault();
-}, false);
-
-<audio id="background_audio">
-    <source src="music/benjamin.mp3" type="audio/.mp3">
+<audio loop autoplay hidden>
+    <source src="music/benjamin.mp3" type="audio/mp3">
 </audio>
 
-<a href="#" id="mute">Play/mute sound</a>
 
 <h1 style="color:Grey">Suicide Prevention</h1>
 <p style="color:Grey">Over 49,000 people died by suicide in 2022. 1 death every 11 minutes. Many adults think about suicide or attempt suicide. 13.2 million seriously thought about suicide. Don't become a part of the statistic. Get Help Today.: (800)-273-8255
